@@ -3,11 +3,178 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PDF & Image Processing Tool</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>PDF Genie</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+    }
+
+    nav {
+      background-color: #333;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-size: 1.5em;
+    }
+
+    .container {
+      padding: 20px;
+    }
+
+    .tool-section {
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .tool-section h2 {
+      margin-top: 0;
+    }
+
+    .file-input {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .file-input input[type="file"] {
+      padding: 10px;
+    }
+
+    button {
+      padding: 10px 15px;
+      border: none;
+      background-color: #007bfc;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #005bb5;
+    }
+
+    .output {
+      margin-top: 20px;
+      padding: 10px;
+      background: #e8f4ff;
+      border: 1px solid #007bfc;
+      border-radius: 4px;
+    }
+  </style>
 </head>
 <body>
-  <div id="root"></div>
-  <script src="/src/index.js" type="module"></script>
+  <nav>PDF Genie - Your File Processing Assistant</nav>
+  <div class="container">
+    <!-- File Upload Section -->
+    <div class="tool-section">
+      <h2>Upload Your File</h2>
+      <div class="file-input">
+        <input type="file" id="file-input" />
+        <button onclick="uploadFile()">Upload</button>
+      </div>
+      <div id="upload-status" class="output" style="display: none;">File uploaded successfully!</div>
+    </div>
+
+    <!-- PDF Tools Section -->
+    <div class="tool-section">
+      <h2>PDF Tools</h2>
+      <button onclick="mergePDFs()">Merge PDFs</button>
+      <button onclick="splitPDF()">Split PDF</button>
+      <button onclick="compressPDF()">Compress PDF</button>
+      <div id="pdf-tools-output" class="output" style="display: none;"></div>
+    </div>
+
+    <!-- OCR Section -->
+    <div class="tool-section">
+      <h2>OCR (Text Recognition)</h2>
+      <button onclick="performOCR()">Run OCR</button>
+      <div id="ocr-output" class="output" style="display: none;"></div>
+    </div>
+
+    <!-- Image Processing Section -->
+    <div class="tool-section">
+      <h2>Image Tools</h2>
+      <button onclick="sharpenImage()">Sharpen Image</button>
+      <button onclick="cropImage()">Crop Image</button>
+      <div id="image-tools-output" class="output" style="display: none;"></div>
+    </div>
+  </div>
+
+  <script>
+    function uploadFile() {
+      const fileInput = document.getElementById('file-input');
+      const uploadStatus = document.getElementById('upload-status');
+      if (fileInput.files.length === 0) {
+        alert('Please select a file to upload.');
+        return;
+      }
+      // Simulate file upload
+      setTimeout(() => {
+        uploadStatus.style.display = 'block';
+        uploadStatus.textContent = 'File uploaded successfully!';
+      }, 1000);
+    }
+
+    function mergePDFs() {
+      const output = document.getElementById('pdf-tools-output');
+      output.style.display = 'block';
+      output.textContent = 'Merging PDFs... (Simulated)';
+      setTimeout(() => {
+        output.textContent = 'PDFs merged successfully!';
+      }, 2000);
+    }
+
+    function splitPDF() {
+      const output = document.getElementById('pdf-tools-output');
+      output.style.display = 'block';
+      output.textContent = 'Splitting PDF... (Simulated)';
+      setTimeout(() => {
+        output.textContent = 'PDF split successfully!';
+      }, 2000);
+    }
+
+    function compressPDF() {
+      const output = document.getElementById('pdf-tools-output');
+      output.style.display = 'block';
+      output.textContent = 'Compressing PDF... (Simulated)';
+      setTimeout(() => {
+        output.textContent = 'PDF compressed successfully!';
+      }, 2000);
+    }
+
+    function performOCR() {
+      const output = document.getElementById('ocr-output');
+      output.style.display = 'block';
+      output.textContent = 'Running OCR... (Simulated)';
+      setTimeout(() => {
+        output.textContent = 'OCR completed! Recognized text: "Hello, World!"';
+      }, 2000);
+    }
+
+    function sharpenImage() {
+      const output = document.getElementById('image-tools-output');
+      output.style.display = 'block';
+      output.textContent = 'Sharpening image... (Simulated)';
+      setTimeout(() => {
+        output.textContent = 'Image sharpened successfully!';
+      }, 2000);
+    }
+
+    function cropImage() {
+      const output = document.getElementById('image-tools-output');
+      output.style.display = 'block';
+      output.textContent = 'Cropping image... (Simulated)';
+      setTimeout(() => {
+        output.textContent = 'Image cropped successfully!';
+      }, 2000);
+    }
+  </script>
 </body>
 </html>
